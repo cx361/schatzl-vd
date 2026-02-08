@@ -52,6 +52,7 @@ h1 {
   -webkit-tap-highlight-color: transparent; 
 }
 
+
 /* --- Mobile Specific Optimization --- */
 @media (max-width: 480px) {
   h1 {
