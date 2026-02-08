@@ -1,55 +1,71 @@
 body {
   margin: 0;
-  height: 100vh;
+  /* 'dvh' ensures it fits perfectly even with mobile browser address bars */
+  height: 100dvh; 
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffebee; /* Soft Pink */
+  background-color: #ffebee;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow: hidden;
 }
 
 .container {
   text-align: center;
-  padding: 20px;
+  width: 90%; /* Keeps content away from the edges on small screens */
+  max-width: 400px;
 }
 
 #main-gif {
-  max-width: 500px;
-  border-radius: 15px;
+  width: 100%; /* Responsive width */
+  max-width: 300px; 
+  height: auto;
+  border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 h1 {
   color: #d32f2f;
   margin-top: 20px;
+  font-size: 1.8rem;
 }
 
 .button-group {
-  margin-top: 30px;
+  margin-top: 25px;
   display: flex;
-  gap: 20px;
+  gap: 15px;
   justify-content: center;
 }
 
 .btn {
-  padding: 15px 30px;
-  font-size: 1.2rem;
+  flex: 1; /* Makes buttons equal width */
+  padding: 15px;
+  font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
   border: none;
-  border-radius: 50px;
+  border-radius: 15px;
   background-color: #ff4081;
   color: white;
   transition: transform 0.2s, background-color 0.2s;
-  box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4);
+  box-shadow: 0 4px 15px rgba(255, 64, 129, 0.3);
+  /* Prevents blue highlight on tap for mobile */
+  -webkit-tap-highlight-color: transparent; 
 }
 
-.btn:hover {
-  transform: scale(1.1);
-  background-color: #f50057;
-}
+/* --- Mobile Specific Optimization --- */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
 
-.btn:active {
-  transform: scale(0.9);
+  .button-group {
+    flex-direction: column; /* Stacks buttons vertically for easier thumb-tapping */
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 18px; /* Slightly larger hit area for fingers */
+  }
 }
