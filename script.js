@@ -6,5 +6,5 @@ function celebrate() {
   mainGif.src = "IMG_0498.gif";
 
   // 3. Hide the buttons
-  buttons.style.display = "none";
+  buttons.style.visibility = "hidden";
 }
